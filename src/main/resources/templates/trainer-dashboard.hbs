@@ -1,0 +1,36 @@
+{{#partial "content"}}
+<p  align="center"><a href="/trainer/exercise/new"><button class="button mt-5">Add an Exercise +</button></a>
+</p>
+
+<div class="place-cards rowa">
+    {{#each exercises}}
+        <a href="analyst/exercise/{{id}}">
+            <div class="w3-container column">
+                <div class="w3-card-4" style="width: 70%">
+                    <header class="w3-container w3-light-grey">
+                        <h3><img
+                                src="https://i.pravatar.cc/100" height="100px" width="100px"
+                                alt="Avatar"
+                                class="w3-left w3-circle w3-margin-right"
+                        />{{exerciseName}}</h3>
+                        <p class="text-muted"><i class="fa fa-map-marker" aria-hidden="true"></i> {{exercisePoints}}</p>
+                    </header>
+                    <div class="w3-container">
+                        <p>
+                            {{exerciseDescription}}
+                        </p>
+                        <p><a href="{{exerciseUrl}}" class="card-link">Download Sample</a></p>
+                        <a href="/trainer/solutions/{{id}}/show" class="button mb-4">view Solutions</a>
+                    </div>
+
+                </div>
+            </div>
+        </a>
+    {{/each}}
+</div>
+
+</div>
+
+
+{{/partial}}
+{{> "layout.hbs"}}

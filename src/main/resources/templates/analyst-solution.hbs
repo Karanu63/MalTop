@@ -1,0 +1,56 @@
+{{#partial "content"}}
+
+
+    <div class="card mb-3" style="width: 100%">
+        <div class="row g-0">
+            <div class="col-md">
+                <img src="" class="img-fluid" />
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h1 class="card-title burj">{{ selectedExercise.exerciseName }}</h1>
+
+                    <p class="card-text">
+                    <p class="text-muted"
+                    ><i class="fa fa-map-marker" aria-hidden="true"></i>
+                        {{ selectedExercise.exercisePoints }}</p
+                    >
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="review-content d-flex flex-column ">
+        <form method="post" action="/analyst/solution/{{selectedExercise.id}}/new">
+            <div class="card-body">
+                <div class="row align-items-center pt-4 pb-3">
+                    <div class="col-md-3">
+                        <h6 class="mb-0">Your Email</h6>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="text" name="analystEmail" id="analystEmail" class="form-control form-control-lg" />
+                    </div>
+                </div>
+
+                <div class="row align-items-center">
+                    <div class="col-md-3">
+                        <h6 class="mb-0">Solution</h6>
+                    </div>
+                    <div class="col-md-9">
+                        <textarea class="form-control" rows="7" name="solution" id="solution" placeholder="Challenge description"></textarea>
+                    </div>
+
+                </div>
+
+                <div class="px-5 py-4">
+                    <input type="submit" value="Sumbit Excercise" class="button">
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+{{/partial}}
+
+{{> layout.hbs}}

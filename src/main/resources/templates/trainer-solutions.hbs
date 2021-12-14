@@ -1,0 +1,33 @@
+{{#partial "content"}}
+
+{{#if solutions}}
+{{#each solutions}}
+    <a href="">
+        <div class="w3-container column">
+            <div class="w3-card-4" style="width: 70%">
+                <header class="w3-container w3-light-grey">
+                    <h3><img
+                            src="https://i.pravatar.cc/100" height="100px" width="100px"
+                            alt="Avatar"
+                            class="w3-left w3-circle w3-margin-right"
+                    />{{exercise.exerciseName}}</h3>
+                    <p class="text-muted"><i class="fa fa-map-marker" aria-hidden="true"></i> {{exercise.exercisePoints}}</p>
+                </header>
+                <div class="w3-container">
+                    <P>Submitted By: {{analystEmail}}</P>
+                    <p>
+                        {{solution}}
+                    </p>
+                    <p> posted at {{createdAt}}</p>
+                </div>
+
+            </div>
+        </div>
+    </a>
+{{/each}}
+{{else}}
+    <p align="center"><h1>No Solves yet :(</h1></p>
+{{/if}}
+
+{{/partial}}
+{{> "layout.hbs"}}
