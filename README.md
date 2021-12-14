@@ -3,6 +3,10 @@
 
 ### Live App <a href="https://maltop.herokuapp.com/"> View Here </a>
 
+### Live Release
+Compiled  : <a href="https://github.com/Karanu63/MalTop/releases">Download Here</a>
+Run the package using `java -jar MalTop<version>.jar`
+
 ## Projects Home page
 
 ![img.png](img.png)
@@ -18,13 +22,17 @@
 
 ## Setup/Installation
 
-1.edit all postgresql username, password and database instances
+1. git clone https://github.com/Karanu63/MalTop.git
 
-2.run psql < create.sql in the project root to create the local database
+2. cd  MalTop/
 
-3.gradle run to compile and host the application [you can also use maven]
+3. edit all postgresql username, password and database instances
 
-4.[optional] mvn heroku:deploy (to deploy to heroku)
+4. run psql < create.sql in the project root to create the local database
+
+5. gradle run to compile and host the application [you can also use maven]
+
+6. [optional] mvn heroku:deploy (to deploy to heroku)
 
 
 ## Technologies Used
