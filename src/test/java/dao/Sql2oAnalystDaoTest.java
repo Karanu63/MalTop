@@ -16,7 +16,7 @@ public class Sql2oAnalystDaoTest {
     @BeforeEach
     void setUp() {
         String connectionString = "jdbc:postgresql://localhost:5432/maltop_test";
-        Sql2o sql2o = new Sql2o(connectionString,"moringa","sparkpass");
+        Sql2o sql2o = new Sql2o(connectionString,"<database-username>","<database-password>");
         analystDao = new Sql2oAnalystDao(sql2o);
         conn = sql2o.open();
     }
