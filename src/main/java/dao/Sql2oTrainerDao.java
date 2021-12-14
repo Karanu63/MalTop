@@ -60,12 +60,12 @@ public class Sql2oTrainerDao implements TrainerDao{
         }
     }
 
-    public Trainer findTrainerByMailAndPassword(String email, String password) {
+    public Trainer findTrainerByMailAndPassword(String trainerEmail, String trainerPassword) {
         getDrivers();
         try(Connection con = sql2o.open()) {
-            return con.createQuery("SELECT * FROM trainers WHERE email = :email AND password = :password")
-                    .addParameter("email", email)
-                    .addParameter("password",password)
+            return con.createQuery("SELECT * FROM trainers WHERE trainerEmail = :trainerEmail AND trainerPassword = :trainerPassword")
+                    .addParameter("trainerEmail", trainerEmail)
+                    .addParameter("trainerPassword",trainerPassword)
                     .executeAndFetchFirst(Trainer.class);
         }
     }

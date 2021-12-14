@@ -51,12 +51,12 @@ public class App {
             String analystPassword = request.queryParams("analystPassword");
             String analystPasswordConf = request.queryParams("password_confirmation");
             int trainerId = Integer.parseInt(request.queryParams("trainerId"));
-            if(analystPassword != analystPasswordConf){
+            if(!analystPassword.equals(analystPasswordConf)){
                 response.redirect("/analyst/register");
             }else{
                 Analyst newAnalyst = new Analyst(analystName,analystEmail,analystPassword,trainerId);
                 analystDao.addAnalyst(newAnalyst);
-                response.redirect("/analyst-login");
+                response.redirect("/analyst/login");
             }
             return null;
         }, new HandlebarsTemplateEngine());
@@ -74,10 +74,12 @@ public class App {
             String analystEmail = request.queryParams("analystEmail");
             String analystPassword = request.queryParams("analystPassword");
             Analyst exist = analystDao.findAnalystByMailAndPassword(analystEmail,analystPassword);
-            if (exist == null){
-                response.redirect("/analyst/login");
-            }else{
+            System.out.println(exist.getAnalystEmail());
+
+            if (exist.getAnalystEmail().equals(analystEmail) && exist.getAnalystPassword().equals(analystPassword)){
                 response.redirect("/analyst/exercise");
+            }else{
+                response.redirect("/analyst/login");
             }
         return null;
     }, new HandlebarsTemplateEngine());
@@ -96,7 +98,7 @@ public class App {
             String trainerPassword = request.queryParams("trainerPassword");
             String trainerPasswordConf = request.queryParams("password_confirmation");
             int classSize = Integer.parseInt(request.queryParams("classSize"));
-            if(trainerPassword != trainerPasswordConf){
+            if(!trainerPassword.equals(trainerPasswordConf)){
                 response.redirect("/trainer/register");
             }else{
                 Trainer trainer = new Trainer(trainerName,trainerEmail,trainerPassword,classSize);
@@ -118,10 +120,13 @@ public class App {
             String trainerEmail = request.queryParams("trainerEmail");
             String trainerPassword = request.queryParams("trainerPassword");
             Trainer exist = trainerDao.findTrainerByMailAndPassword(trainerEmail,trainerPassword);
-            if (exist == null){
-                response.redirect("/trainer/login");
-            }else{
+            System.out.println(trainerEmail+trainerPassword);
+            System.out.println("ssss"+exist.getTrainerPassword());
+            System.out.println("ssss"+exist.getTrainerPassword());
+            if (exist.getTrainerEmail().equals(trainerEmail) && exist.getTrainerPassword().equals(trainerPassword)){
                 response.redirect("/trainer/dashboard");
+            }else{
+                response.redirect("/trainer/login");
             }
             return null;
         }, new HandlebarsTemplateEngine());

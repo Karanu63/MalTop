@@ -55,12 +55,12 @@ public class Sql2oAnalystDao implements AnalystDao {
         }
     }
 
-    public Analyst findAnalystByMailAndPassword(String email, String password) {
+    public Analyst findAnalystByMailAndPassword(String analystEmail, String analystPassword) {
         getDrivers();
         try(Connection con = sql2o.open()) {
-            return con.createQuery("SELECT * FROM analysts WHERE email = :email AND password = :password")
-                    .addParameter("email", email)
-                    .addParameter("password",password)
+            return con.createQuery("SELECT * FROM analysts WHERE analystEmail = :analystEmail AND analystPassword = :analystPassword")
+                    .addParameter("analystEmail", analystEmail)
+                    .addParameter("analystPassword",analystPassword)
                     .executeAndFetchFirst(Analyst.class);
         }
     }

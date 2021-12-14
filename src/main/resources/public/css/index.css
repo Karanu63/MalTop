@@ -184,19 +184,3 @@ text-align:center;
   display: table;
   clear: both;
 }
-
-
-.centered-form{
-	margin-top: 60px;
-}
-
-.centered-form .panel{
-	background: rgba(255, 255, 255, 0.8);
-	box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
-}
-.body{
-    background-color: rgba(52,90,113,0.892)
-}
-.redd{
-    background-color:  #FF0000ff;;
-}
