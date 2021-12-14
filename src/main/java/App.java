@@ -19,11 +19,21 @@ import java.util.HashMap;
 
 import static spark.Spark.*;
 public class App {
+
+    static int getHerokuAssignedPort() {
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        if (processBuilder.environment().get("PORT") != null) {
+            return Integer.parseInt(processBuilder.environment().get("PORT"));
+        }
+        return 4567;
+    }
+
     public static void main(String[] args) {
+        port(getHerokuAssignedPort());
         staticFileLocation("/public");
 
-        String connectionString = "jdbc:postgresql://localhost:5432/maltop?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory";
-        Sql2o sql2o = new Sql2o(connectionString,"moringa","sparkpass");
+        String connectionString = "jdbc:postgresql://ec2-52-201-106-191.compute-1.amazonaws.com:5432/d236rjka5geu50?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory";
+        Sql2o sql2o = new Sql2o(connectionString,"tcwamawavcjhpu","c18c63d86018f09e189281348859316a2ff4f3676dcd307d8334a5c2bf7c1baf");
         Sql2oAnalystDao analystDao = new Sql2oAnalystDao(sql2o);
         Sql2oTrainerDao trainerDao = new Sql2oTrainerDao(sql2o);
         Sql2oExerciseDao exerciseDao = new Sql2oExerciseDao(sql2o);

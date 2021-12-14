@@ -1,9 +1,13 @@
 plugins {
     id 'java'
+    id 'application'
+    id 'maven-publish'
 }
 
 group 'com.brenda.maltop'
 version '1.0'
+
+mainClassName = "App"
 
 repositories {
     mavenCentral()
@@ -21,4 +25,15 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            group 'com.brenda.maltop'
+            version '1.0'
+
+            from components.java
+        }
+    }
 }
